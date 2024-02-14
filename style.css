@@ -40,10 +40,18 @@ h1 {
     align-items: center;
 }
 
-.button {
+.buttons {
     border-radius: 5px;
     border: none;
     background-color: whitesmoke;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: black;
+}
+
+.restartbutton {
+    border-radius: 5px;
+    border: none;
+    background-color: red;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     color: black;
 }

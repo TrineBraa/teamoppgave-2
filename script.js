@@ -29,12 +29,14 @@ function changeView() {
         </div>
         <div id="bob">🐈</div>
         <div>
-            <button ${catIsDead ? "disabled" : ""} class="button " onclick="feedCat()">Feed Bob</button>
-            <button ${catIsDead ? "disabled" : ""} class="button" onclick="playWithCat()">Play with Bob</button>
-            <button ${catIsDead ? "disabled" : ""} class="button" onclick="petCat()">Pet Bob</button>
-            <button ${catIsDead ? "disabled" : ""} class="button" onclick="batheCat()">Clean Bob's Litter Box</button>
-            <button ${catIsDead ? "disabled" : ""} class="button" onclick="letCatRest()">Give Bob Rest</button>
+            <button ${catIsDead ? "disabled" : ""} class="buttons" onclick="feedCat()">Feed Bob</button>
+            <button ${catIsDead ? "disabled" : ""} class="buttons" onclick="playWithCat()">Play with Bob</button>
+            <button ${catIsDead ? "disabled" : ""} class="buttons" onclick="petCat()">Pet Bob</button>
+            <button ${catIsDead ? "disabled" : ""} class="buttons" onclick="batheCat()">Clean Bob's Litter Box</button>
+            <button ${catIsDead ? "disabled" : ""} class="buttons" onclick="letCatRest()">Give Bob Rest</button>
         </div>
+        <br/>
+        <button class="restartbutton" onclick="restartGame()">Restart Game</button>
     </div>
     `;
 
@@ -45,12 +47,13 @@ function changeView() {
 startCatTimer();
 
 //funksjonen som starter spillet under loadup.
+//Math.floor(Math.random() * 30000) Setter Tiden mellom 0sek og 30sek
 function startCatTimer() {
-    feedingTimer = setInterval(makeCatHungry, Math.floor(Math.random() * 10000)) //*7sek*//
-    playingTimer = setInterval(makeCatWantToPlay, 5000) //*5sek*//
-    pettingTimer = setInterval(makeTheCatWantPets, 3000) //*3sek*//
-    cleaningTimer = setInterval(catIsStinky, 8000) //*8sek*//
-    sleepingTimer = setInterval(catIsSleepy, 9000) //*9sek*//
+    feedingTimer = setInterval(makeCatHungry, 14000) //*14sek*//
+    playingTimer = setInterval(makeCatWantToPlay, 10000) //*10sek*//
+    pettingTimer = setInterval(makeTheCatWantPets, 8000) //*8sek*//
+    cleaningTimer = setInterval(catIsStinky, 16000) //*16sek*//
+    sleepingTimer = setInterval(catIsSleepy, 18000) //*18sek*//
 }
 // En funksjom for å gjøre katten sulten, en funksjon for å mate katten osv. 
 // Kan lage en stor funksjon hvor man sjekker kattens behov ved å sende inn parameter
@@ -109,4 +112,8 @@ function catLeaves() {
         document.getElementById("bob").innerHTML = '<img src="https://i.ytimg.com/vi/69pcv-UBn1s/hqdefault.jpg"/>';
         catIsDead = true;
     }
+}
+
+function restartGame() {
+    location.reload();
 }

@@ -13,6 +13,7 @@ let catWantsToPlay = false;
 let catWantsPetting = false;
 let catNeedsABath = false;
 let catNeedsSleep = false;
+var randomNumber;
 
 // V - View
 changeView();
@@ -48,11 +49,11 @@ startCatTimer();
 
 //funksjonen som starter spillet under loadup.
 function startCatTimer() {
-    feedingTimer = setInterval(makeCatHungry, 7000) //*7sek*//
-    playingTimer = setInterval(makeCatWantToPlay, 5000) //*5sek*//
-    pettingTimer = setInterval(makeTheCatWantPets, 3000) //*3sek*//
-    cleaningTimer = setInterval(catIsStinky, 8000) //*8sek*//
-    sleepingTimer = setInterval(catIsSleepy, 9000) //*9sek*//
+    feedingTimer = setInterval(makeCatHungry, randomNumber = getRandomInt(5000, 30000)) //*7sek*//
+    playingTimer = setInterval(makeCatWantToPlay, randomNumber = getRandomInt(5000, 30000)) //*5sek*//
+    pettingTimer = setInterval(makeTheCatWantPets, randomNumber = getRandomInt(5000, 30000)) //*3sek*//
+    cleaningTimer = setInterval(catIsStinky, randomNumber = getRandomInt(5000, 30000)) //*8sek*//
+    sleepingTimer = setInterval(catIsSleepy, randomNumber = getRandomInt(5000, 30000)) //*9sek*//
 }
 // En funksjom for å gjøre katten sulten, en funksjon for å mate katten osv. 
 // Kan lage en stor funksjon hvor man sjekker kattens behov ved å sende inn parameter
@@ -94,6 +95,7 @@ function catIsStinky() {
 function batheTheCat() {
     catNeedsABath = false;
     changeView();
+
 }
 
 function catIsSleepy() {
@@ -111,3 +113,11 @@ function catLeaves() {
         document.getElementById("bob").innerHTML = '<img src="https://i.ytimg.com/vi/69pcv-UBn1s/hqdefault.jpg"/>';
     }
 }
+
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
