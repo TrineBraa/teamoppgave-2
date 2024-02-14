@@ -1,6 +1,4 @@
 // M - Model
-let cat = 'Bob';
-
 let feedingTimer;
 let playingTimer;
 let pettingTimer;
